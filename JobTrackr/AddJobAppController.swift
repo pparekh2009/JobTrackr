@@ -20,12 +20,31 @@ class AddJobAppController: NSViewController {
     @IBOutlet weak var applicationDeadlineInput: NSDatePicker!
     @IBOutlet weak var noteInput: NSTextField!
     
+    @IBOutlet weak var addBtn: NSButton!
+    
     var addItemDelegate: AddItemDelegate?
+    
+    var jobApp: JobApp?
     
     let context = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (jobApp != nil) {
+            addBtn.title = "Update"
+            
+            companyNameTF.stringValue = jobApp?.companyName ?? ""
+            roleTF.stringValue = jobApp?.role ?? ""
+            locationInput.stringValue = jobApp?.location ?? ""
+            salaryInput.stringValue = jobApp?.salary ?? ""
+            jobDescriptionInput.stringValue = jobApp?.jobDescription ?? ""
+            roleTypeInput.stringValue = jobApp?.roleType ?? ""
+            statusInput.stringValue = jobApp?.status ?? ""
+            dateAppliedInput.dateValue = jobApp?.dateApplied ?? Date()
+            applicationDeadlineInput.dateValue = jobApp?.applicationDeadline ?? Date()
+            noteInput.stringValue = jobApp?.note ?? ""
+        }
     
         roleTypeInput.removeAllItems()
         for jobType in JobType.allCases {
@@ -53,8 +72,13 @@ class AddJobAppController: NSViewController {
         let dateApplied = dateAppliedInput.dateValue
         let applicationDealine = applicationDeadlineInput.dateValue
         let note = noteInput.stringValue
-        
-        let job = JobApp(context: context)
+
+        var job: JobApp
+        if (jobApp != nil) {
+            job = jobApp!
+        } else {
+            job = JobApp(context: context)
+        }
         job.companyName = companyName
         job.role = role
         job.location = location
@@ -72,8 +96,8 @@ class AddJobAppController: NSViewController {
             print("Error saving job")
         }
         
-        self.dismiss(self)
         addItemDelegate?.didAddItem()
+        self.dismiss(self)
         
     }
 }

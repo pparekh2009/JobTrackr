@@ -23,9 +23,9 @@ extension JobApp {
     @NSManaged public var location: String?
     @NSManaged public var note: String?
     @NSManaged public var role: String?
-    @NSManaged public var roleType: String
+    @NSManaged public var roleType: String?
     @NSManaged public var salary: String?
-    @NSManaged public var status: String
+    @NSManaged public var status: String?
     @NSManaged public var companyName: String?
 
 }

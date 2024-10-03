@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22690"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -932,7 +933,7 @@
         <!--Add Job App Controller-->
         <scene sceneID="yHe-cr-R2S">
             <objects>
-                <viewController id="oti-fr-hN6" customClass="AddJobAppController" customModule="JobTrackr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddJobControllerId" id="oti-fr-hN6" customClass="AddJobAppController" customModule="JobTrackr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="DCx-N3-RqJ">
                         <rect key="frame" x="0.0" y="0.0" width="2000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1074,8 +1075,8 @@
                                 </constraints>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" useCurrentDate="YES" id="nWj-lm-6jc">
                                     <font key="font" metaFont="system"/>
-                                    <date key="date" timeIntervalSinceReferenceDate="749429085.76700795">
-                                        <!--2024-09-30 22:44:45 +0000-->
+                                    <date key="date" timeIntervalSinceReferenceDate="749615256.99159002">
+                                        <!--2024-10-03 02:27:36 +0000-->
                                     </date>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1097,8 +1098,8 @@
                                 </constraints>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" useCurrentDate="YES" id="q9m-cR-wH8">
                                     <font key="font" metaFont="system"/>
-                                    <date key="date" timeIntervalSinceReferenceDate="749429090.088835">
-                                        <!--2024-09-30 22:44:50 +0000-->
+                                    <date key="date" timeIntervalSinceReferenceDate="749615256.99407005">
+                                        <!--2024-10-03 02:27:36 +0000-->
                                     </date>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1263,6 +1264,7 @@ Gw
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addBtn" destination="Nfv-dr-XuS" id="OxT-ep-Nbd"/>
                         <outlet property="applicationDeadlineInput" destination="Mma-oD-UUs" id="egh-qh-muK"/>
                         <outlet property="companyNameTF" destination="6g6-Lg-MKs" id="RHd-df-J9m"/>
                         <outlet property="dateAppliedInput" destination="VRL-so-a8I" id="4Sj-Np-V8R"/>
@@ -1279,10 +1281,10 @@ Gw
             </objects>
             <point key="canvasLocation" x="2598" y="2042"/>
         </scene>
-        <!--View Controller-->
+        <!--Job Detail Controller-->
         <scene sceneID="xFm-dz-iJp">
             <objects>
-                <viewController id="sxN-Ig-Zsx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JobDetailControllerId" id="sxN-Ig-Zsx" customClass="JobDetailController" customModule="JobTrackr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="yaz-Vm-Bbx">
                         <rect key="frame" x="0.0" y="0.0" width="2000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1296,8 +1298,8 @@ Gw
                                 </textFieldCell>
                             </textField>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="54B-qV-Bg0">
-                                <rect key="frame" x="970" y="866" width="61" height="35"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Role" id="AaZ-Ik-ZgT">
+                                <rect key="frame" x="875" y="866" width="251" height="35"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Company, Location" id="AaZ-Ik-ZgT">
                                     <font key="font" metaFont="system" size="30"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1313,7 +1315,7 @@ Gw
                                     <constraint firstAttribute="width" constant="88" id="XzL-KZ-EGd"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="oti-fr-hN6" kind="sheet" id="U8r-TI-6rc"/>
+                                    <action selector="editBtnTapped:" target="sxN-Ig-Zsx" id="A8D-ZC-8tF"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7ws-MV-wTB">
@@ -1326,44 +1328,174 @@ Gw
                                 <constraints>
                                     <constraint firstAttribute="width" constant="88" id="Cwh-fs-KDv"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="deleteBtnTapped:" target="sxN-Ig-Zsx" id="Ot9-vB-LrP"/>
+                                </connections>
                             </button>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZJm-mE-RkM">
-                                <rect key="frame" x="248" y="513" width="1504" height="285"/>
+                                <rect key="frame" x="248" y="475" width="1504" height="285"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1500" id="n6o-qd-xrc"/>
                                 </constraints>
                                 <textFieldCell key="cell" id="IZL-RI-mad">
                                     <font key="font" textStyle="title2" name=".SFNS-Regular"/>
-                                    <mutableString key="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus dolor, mollis non risus vitae, pretium consequat arcu. Maecenas maximus feugiat bibendum. Etiam vestibulum eu dui sed volutpat. Sed ex purus, mollis at hendrerit eget, scelerisque ut neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam id mi egestas, venenatis eros sed, tristique tortor.
+                                    <string key="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus dolor, mollis non risus vitae, pretium consequat arcu. Maecenas maximus feugiat bibendum. Etiam vestibulum eu dui sed volutpat. Sed ex purus, mollis at hendrerit eget, scelerisque ut neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam id mi egestas, venenatis eros sed, tristique tortor.
 
 Fusce egestas ex ac diam dictum elementum. Praesent vel ante mi. In vehicula, lacus eget posuere dictum, tellus neque egestas magna, vitae tristique lorem nisi quis felis. Cras leo dui, consequat sit amet odio vitae, lacinia varius augue. Aliquam quis magna volutpat, viverra magna id, vehicula elit. Donec id tempor justo. Fusce facilisis nibh urna, et viverra arcu interdum sit amet. Cras accumsan erat sit amet velit posuere, lacinia ullamcorper purus ultrices. Proin nec dolor metus. Donec quis interdum lectus. Nulla facilisi. Proin malesuada rutrum massa eget pellentesque. Donec ac elementum purus. Phasellus id sapien in ligula condimentum commodo. Etiam ultrices auctor faucibus.
 
-Nulla varius nisl tellus, a ultrices dolor interdum vitae. Quisque dui leo, aliquam eget nisl id, varius tincidunt erat. Sed eu augue aliquam, mollis lorem ac, laoreet lectus. Phasellus sit amet diam ut velit sollicitudin finibus nec id ex. Sed dictum metus in euismod ornare. Vestibulum lobortis ultricies lectus, eget commodo tellus viverra non. Donec at libero lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis quis nisl vitae nisi mattis aliquam. Morbi nec tortor vulputate, ultrices turpis vitae, rutrum sapien. Pellentesque nec odio metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</mutableString>
+Nulla varius nisl tellus, a ultrices dolor interdum vitae. Quisque dui leo, aliquam eget nisl id, varius tincidunt erat. Sed eu augue aliquam, mollis lorem ac, laoreet lectus. Phasellus sit amet diam ut velit sollicitudin finibus nec id ex. Sed dictum metus in euismod ornare. Vestibulum lobortis ultricies lectus, eget commodo tellus viverra non. Donec at libero lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis quis nisl vitae nisi mattis aliquam. Morbi nec tortor vulputate, ultrices turpis vitae, rutrum sapien. Pellentesque nec odio metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="te2-a7-1YQ">
+                                <rect key="frame" x="248" y="424" width="72" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Salary: - " id="jHw-eQ-M5V">
+                                    <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="csU-Jt-Kr2">
+                                <rect key="frame" x="336" y="424" width="46" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="wb3-xZ-jKh">
+                                    <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tbX-YC-eIK">
+                                <rect key="frame" x="248" y="790" width="65" height="26"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Status" id="XFQ-pJ-nRr">
+                                    <font key="font" textStyle="title1" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PqG-Ur-Sbr">
+                                <rect key="frame" x="329" y="793" width="46" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="8ZJ-OS-3fl">
+                                    <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LNd-Ma-6Je">
+                                <rect key="frame" x="248" y="373" width="100" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Role Type: - " id="TKX-8Q-HS1">
+                                    <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xMM-QV-5LW">
+                                <rect key="frame" x="364" y="373" width="46" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="aXI-Zn-zwq">
+                                    <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="doG-wS-Ngx">
+                                <rect key="frame" x="248" y="322" width="62" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Note: - " id="Mqg-rG-qWs">
+                                    <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hnC-6A-ZJ8">
+                                <rect key="frame" x="326" y="322" width="46" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="HnP-DQ-GBb">
+                                    <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-Kl-KKX">
+                                <rect key="frame" x="248" y="271" width="123" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Date Applied: - " id="xhA-az-lub">
+                                    <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nsR-Dj-jbj">
+                                <rect key="frame" x="387" y="271" width="46" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="b6e-Qm-f22">
+                                    <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fte-xg-aer">
+                                <rect key="frame" x="20" y="950" width="25" height="35"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="oMM-N5-OUl">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <imageReference key="image" image="xmark.circle" catalog="system" symbolScale="large"/>
+                                </buttonCell>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="N6D-xF-Dur"/>
+                                    <constraint firstAttribute="width" constant="25" id="eng-D7-dln"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="closeBtnTapped:" target="sxN-Ig-Zsx" id="FLg-QT-M6u"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="nsR-Dj-jbj" firstAttribute="centerY" secondItem="QeY-Kl-KKX" secondAttribute="centerY" id="0Ox-1w-TdB"/>
+                            <constraint firstItem="tbX-YC-eIK" firstAttribute="leading" secondItem="yaz-Vm-Bbx" secondAttribute="leading" constant="250" id="3IF-Qu-nG1"/>
                             <constraint firstItem="iP9-lu-HEV" firstAttribute="top" secondItem="yaz-Vm-Bbx" secondAttribute="top" constant="41" id="4DA-9v-yo4"/>
+                            <constraint firstItem="QeY-Kl-KKX" firstAttribute="top" secondItem="doG-wS-Ngx" secondAttribute="bottom" constant="30" id="5s4-tM-89N"/>
+                            <constraint firstItem="LNd-Ma-6Je" firstAttribute="leading" secondItem="yaz-Vm-Bbx" secondAttribute="leading" constant="250" id="6BY-xu-R32"/>
+                            <constraint firstItem="Fte-xg-aer" firstAttribute="top" secondItem="yaz-Vm-Bbx" secondAttribute="top" constant="20" id="8Nb-d2-Qnu"/>
+                            <constraint firstItem="te2-a7-1YQ" firstAttribute="top" secondItem="ZJm-mE-RkM" secondAttribute="bottom" constant="30" id="BNb-bv-wP6"/>
+                            <constraint firstItem="ZJm-mE-RkM" firstAttribute="top" secondItem="tbX-YC-eIK" secondAttribute="bottom" constant="30" id="BaR-AO-RWv"/>
+                            <constraint firstItem="LNd-Ma-6Je" firstAttribute="top" secondItem="te2-a7-1YQ" secondAttribute="bottom" constant="30" id="FBQ-Rk-3rK"/>
                             <constraint firstItem="DI1-tD-1SJ" firstAttribute="centerX" secondItem="yaz-Vm-Bbx" secondAttribute="centerX" id="GyS-M5-1aC"/>
+                            <constraint firstItem="doG-wS-Ngx" firstAttribute="leading" secondItem="yaz-Vm-Bbx" secondAttribute="leading" constant="250" id="Iu7-gl-u3V"/>
+                            <constraint firstItem="xMM-QV-5LW" firstAttribute="leading" secondItem="LNd-Ma-6Je" secondAttribute="trailing" constant="20" id="LLT-Wg-bjK"/>
+                            <constraint firstItem="PqG-Ur-Sbr" firstAttribute="leading" secondItem="tbX-YC-eIK" secondAttribute="trailing" constant="20" id="MUh-NP-J00"/>
                             <constraint firstAttribute="trailing" secondItem="iP9-lu-HEV" secondAttribute="trailing" constant="20" symbolic="YES" id="Orl-C6-cQa"/>
+                            <constraint firstItem="csU-Jt-Kr2" firstAttribute="leading" secondItem="te2-a7-1YQ" secondAttribute="trailing" constant="20" id="RiY-mJ-SBH"/>
+                            <constraint firstItem="csU-Jt-Kr2" firstAttribute="centerY" secondItem="te2-a7-1YQ" secondAttribute="centerY" id="S05-tz-lSV"/>
+                            <constraint firstItem="xMM-QV-5LW" firstAttribute="centerY" secondItem="LNd-Ma-6Je" secondAttribute="centerY" id="YJM-9I-rnk"/>
                             <constraint firstItem="54B-qV-Bg0" firstAttribute="top" secondItem="DI1-tD-1SJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Yoo-46-FFx"/>
                             <constraint firstItem="ZJm-mE-RkM" firstAttribute="centerX" secondItem="yaz-Vm-Bbx" secondAttribute="centerX" id="dTw-07-PaX"/>
+                            <constraint firstItem="doG-wS-Ngx" firstAttribute="top" secondItem="LNd-Ma-6Je" secondAttribute="bottom" constant="30" id="dYO-N0-fMC"/>
                             <constraint firstItem="DI1-tD-1SJ" firstAttribute="top" secondItem="yaz-Vm-Bbx" secondAttribute="top" constant="20" symbolic="YES" id="feF-Yz-avy"/>
                             <constraint firstItem="54B-qV-Bg0" firstAttribute="centerX" secondItem="yaz-Vm-Bbx" secondAttribute="centerX" id="gZX-DO-Nfd"/>
-                            <constraint firstItem="ZJm-mE-RkM" firstAttribute="top" secondItem="54B-qV-Bg0" secondAttribute="bottom" constant="68" id="i00-g1-8ky"/>
+                            <constraint firstItem="PqG-Ur-Sbr" firstAttribute="centerY" secondItem="tbX-YC-eIK" secondAttribute="centerY" id="hgu-Ui-tn0"/>
+                            <constraint firstItem="tbX-YC-eIK" firstAttribute="top" secondItem="54B-qV-Bg0" secondAttribute="bottom" constant="50" id="lPi-MG-z9Q"/>
+                            <constraint firstItem="te2-a7-1YQ" firstAttribute="leading" secondItem="yaz-Vm-Bbx" secondAttribute="leading" constant="250" id="lmp-4L-rwW"/>
+                            <constraint firstItem="hnC-6A-ZJ8" firstAttribute="leading" secondItem="doG-wS-Ngx" secondAttribute="trailing" constant="20" id="m1d-ax-tY0"/>
+                            <constraint firstItem="hnC-6A-ZJ8" firstAttribute="centerY" secondItem="doG-wS-Ngx" secondAttribute="centerY" id="msv-5c-XpO"/>
                             <constraint firstItem="7ws-MV-wTB" firstAttribute="centerX" secondItem="yaz-Vm-Bbx" secondAttribute="centerX" id="n5U-rY-pSc"/>
+                            <constraint firstItem="nsR-Dj-jbj" firstAttribute="leading" secondItem="QeY-Kl-KKX" secondAttribute="trailing" constant="20" id="nIr-sg-Am4"/>
+                            <constraint firstItem="QeY-Kl-KKX" firstAttribute="leading" secondItem="yaz-Vm-Bbx" secondAttribute="leading" constant="250" id="olQ-2u-Tga"/>
                             <constraint firstAttribute="bottom" secondItem="7ws-MV-wTB" secondAttribute="bottom" constant="20" symbolic="YES" id="vHF-rK-xT3"/>
+                            <constraint firstItem="Fte-xg-aer" firstAttribute="leading" secondItem="yaz-Vm-Bbx" secondAttribute="leading" constant="20" symbolic="YES" id="yfp-xa-oRi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="companyLocationLabel" destination="54B-qV-Bg0" id="hnN-Wy-sgV"/>
+                        <outlet property="dateAppliedLabel" destination="nsR-Dj-jbj" id="wEb-tg-24I"/>
+                        <outlet property="jobDescriptionLabel" destination="ZJm-mE-RkM" id="6bX-3J-XOe"/>
+                        <outlet property="noteLabel" destination="hnC-6A-ZJ8" id="Sqm-tS-ZIb"/>
+                        <outlet property="roleLabel" destination="DI1-tD-1SJ" id="5qn-No-S0r"/>
+                        <outlet property="roleTypeLabel" destination="xMM-QV-5LW" id="lGG-Z7-EbJ"/>
+                        <outlet property="salaryLabel" destination="csU-Jt-Kr2" id="naY-vJ-UdA"/>
+                        <outlet property="statusLabel" destination="PqG-Ur-Sbr" id="8Hz-Aq-GEe"/>
+                    </connections>
                 </viewController>
                 <customObject id="S1b-9M-jWz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="242" y="2726"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="U8r-TI-6rc"/>
-    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="xmark.circle" catalog="system" width="19" height="19"/>
+    </resources>
 </document>

@@ -34,6 +34,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "JobTrackr")
+        
+//        do {
+//            try container.persistentStoreCoordinator.destroyPersistentStore(at: container.persistentStoreDescriptions.first!.url!, type: .sqlite, options: nil)
+//        } catch {
+//            print(error)
+//        }
+        
+//        let storeURL = NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("JobTrackr.sqlite") // Set the correct store URL
+
+//        let options = [
+//            NSMigratePersistentStoresAutomaticallyOption: true,
+//            NSInferMappingModelAutomaticallyOption: true
+//        ]
+
+//        container.persistentStoreDescriptions.first?.url = storeURL // Set the store URL
+//        container.persistentStoreDescriptions.first?.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationOption) // Optional
+
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
                 // Replace this implementation with code to handle the error appropriately.
@@ -47,6 +65,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                  * The store could not be migrated to the current model version.
                  Check the error message to determine what the actual problem was.
                  */
+                
                 fatalError("Unresolved error \(error)")
             }
         })

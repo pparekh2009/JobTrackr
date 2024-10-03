@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4035BF0E2CAE5CD700FC9926 /* JobDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035BF0D2CAE5CD700FC9926 /* JobDetailController.swift */; };
 		406080E52C9FDEDE00303400 /* JobTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406080E42C9FDEDE00303400 /* JobTableCell.swift */; };
 		406080E72C9FDEFE00303400 /* JobTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 406080E62C9FDEFE00303400 /* JobTableCell.xib */; };
 		4071DF0F2C9E5535004EC5EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4071DF0E2C9E5535004EC5EC /* AppDelegate.swift */; };
@@ -14,13 +15,15 @@
 		4071DF142C9E5535004EC5EC /* JobTrackr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4071DF122C9E5535004EC5EC /* JobTrackr.xcdatamodeld */; };
 		4071DF162C9E5536004EC5EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4071DF152C9E5536004EC5EC /* Assets.xcassets */; };
 		4071DF192C9E5536004EC5EC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4071DF182C9E5536004EC5EC /* Base */; };
-		408ACC602CAB61BB00D2D341 /* JobApp+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408ACC5E2CAB61BB00D2D341 /* JobApp+CoreDataClass.swift */; };
-		408ACC612CAB61BB00D2D341 /* JobApp+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408ACC5F2CAB61BB00D2D341 /* JobApp+CoreDataProperties.swift */; };
 		408ACC632CAB621300D2D341 /* AddJobAppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408ACC622CAB621300D2D341 /* AddJobAppController.swift */; };
 		408ACC652CABA92400D2D341 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408ACC642CABA92400D2D341 /* AppConstants.swift */; };
+		408ACC682CABD41F00D2D341 /* JobApp+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408ACC662CABD41F00D2D341 /* JobApp+CoreDataClass.swift */; };
+		408ACC692CABD41F00D2D341 /* JobApp+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408ACC672CABD41F00D2D341 /* JobApp+CoreDataProperties.swift */; };
+		408ACC6C2CABD7F600D2D341 /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 408ACC6B2CABD7F600D2D341 /* Model.xcmappingmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4035BF0D2CAE5CD700FC9926 /* JobDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailController.swift; sourceTree = "<group>"; };
 		406080E42C9FDEDE00303400 /* JobTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableCell.swift; sourceTree = "<group>"; };
 		406080E62C9FDEFE00303400 /* JobTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobTableCell.xib; sourceTree = "<group>"; };
 		4071DF0B2C9E5535004EC5EC /* JobTrackr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobTrackr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,10 +33,12 @@
 		4071DF152C9E5536004EC5EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4071DF182C9E5536004EC5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4071DF1A2C9E5536004EC5EC /* JobTrackr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JobTrackr.entitlements; sourceTree = "<group>"; };
-		408ACC5E2CAB61BB00D2D341 /* JobApp+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobApp+CoreDataClass.swift"; sourceTree = "<group>"; };
-		408ACC5F2CAB61BB00D2D341 /* JobApp+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobApp+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		408ACC622CAB621300D2D341 /* AddJobAppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobAppController.swift; sourceTree = "<group>"; };
 		408ACC642CABA92400D2D341 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		408ACC662CABD41F00D2D341 /* JobApp+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobApp+CoreDataClass.swift"; sourceTree = "<group>"; };
+		408ACC672CABD41F00D2D341 /* JobApp+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobApp+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		408ACC6A2CABD77100D2D341 /* JobTrackrV2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JobTrackrV2.xcdatamodel; sourceTree = "<group>"; };
+		408ACC6B2CABD7F600D2D341 /* Model.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model.xcmappingmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,10 +71,11 @@
 		4071DF0D2C9E5535004EC5EC /* JobTrackr */ = {
 			isa = PBXGroup;
 			children = (
-				408ACC5E2CAB61BB00D2D341 /* JobApp+CoreDataClass.swift */,
-				408ACC5F2CAB61BB00D2D341 /* JobApp+CoreDataProperties.swift */,
+				408ACC662CABD41F00D2D341 /* JobApp+CoreDataClass.swift */,
+				408ACC672CABD41F00D2D341 /* JobApp+CoreDataProperties.swift */,
 				4071DF0E2C9E5535004EC5EC /* AppDelegate.swift */,
 				4071DF102C9E5535004EC5EC /* JobListController.swift */,
+				408ACC6B2CABD7F600D2D341 /* Model.xcmappingmodel */,
 				4071DF152C9E5536004EC5EC /* Assets.xcassets */,
 				4071DF172C9E5536004EC5EC /* Main.storyboard */,
 				4071DF1A2C9E5536004EC5EC /* JobTrackr.entitlements */,
@@ -78,6 +84,7 @@
 				406080E62C9FDEFE00303400 /* JobTableCell.xib */,
 				408ACC622CAB621300D2D341 /* AddJobAppController.swift */,
 				408ACC642CABA92400D2D341 /* AppConstants.swift */,
+				4035BF0D2CAE5CD700FC9926 /* JobDetailController.swift */,
 			);
 			path = JobTrackr;
 			sourceTree = "<group>";
@@ -153,14 +160,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				408ACC602CAB61BB00D2D341 /* JobApp+CoreDataClass.swift in Sources */,
-				408ACC612CAB61BB00D2D341 /* JobApp+CoreDataProperties.swift in Sources */,
+				408ACC682CABD41F00D2D341 /* JobApp+CoreDataClass.swift in Sources */,
+				408ACC692CABD41F00D2D341 /* JobApp+CoreDataProperties.swift in Sources */,
 				406080E52C9FDEDE00303400 /* JobTableCell.swift in Sources */,
 				408ACC652CABA92400D2D341 /* AppConstants.swift in Sources */,
 				4071DF112C9E5535004EC5EC /* JobListController.swift in Sources */,
 				4071DF142C9E5535004EC5EC /* JobTrackr.xcdatamodeld in Sources */,
 				408ACC632CAB621300D2D341 /* AddJobAppController.swift in Sources */,
 				4071DF0F2C9E5535004EC5EC /* AppDelegate.swift in Sources */,
+				4035BF0E2CAE5CD700FC9926 /* JobDetailController.swift in Sources */,
+				408ACC6C2CABD7F600D2D341 /* Model.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,9 +388,10 @@
 		4071DF122C9E5535004EC5EC /* JobTrackr.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				408ACC6A2CABD77100D2D341 /* JobTrackrV2.xcdatamodel */,
 				4071DF132C9E5535004EC5EC /* JobTrackr.xcdatamodel */,
 			);
-			currentVersion = 4071DF132C9E5535004EC5EC /* JobTrackr.xcdatamodel */;
+			currentVersion = 408ACC6A2CABD77100D2D341 /* JobTrackrV2.xcdatamodel */;
 			path = JobTrackr.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

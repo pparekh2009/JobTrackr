@@ -10,6 +10,7 @@ import Cocoa
 class JobListController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, AddItemDelegate {
     
     func didAddItem() {
+        print("didAddItem called!")
         getJobApplications()
     }
     
@@ -45,13 +46,7 @@ class JobListController: NSViewController, NSTableViewDelegate, NSTableViewDataS
         
         getJobApplications()
         
-//        let sampleJob = JobApp(context: context)
-//        sampleJob.role = "Android Dev"
-//        sampleJob.roleType = JobType.Hybrid.rawValue
-//        sampleJob.location = "Fremont"
-//        sampleJob.status = Status.Applied.rawValue
-        
-//        jobList.append(sampleJob)
+        print("Job list size: \(self.jobList.count)")
     }
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -65,7 +60,7 @@ class JobListController: NSViewController, NSTableViewDelegate, NSTableViewDataS
     }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let row = jobList[row]
+        let row = jobList[row] as JobApp
         
         if let column = tableColumn {
             let identifier = column.identifier.rawValue
@@ -81,7 +76,7 @@ class JobListController: NSViewController, NSTableViewDelegate, NSTableViewDataS
                 let cellId = NSUserInterfaceItemIdentifier("roleType")
                 guard let cell = tableView.makeView(withIdentifier: cellId, owner: self) as? NSTableCellView else { return nil }
                 
-                cell.textField?.stringValue = "\(row.roleType)"
+                cell.textField?.stringValue = row.roleType!
                 
                 return cell
             } else if identifier == "location" {
@@ -95,7 +90,7 @@ class JobListController: NSViewController, NSTableViewDelegate, NSTableViewDataS
                 let cellId = NSUserInterfaceItemIdentifier("status")
                 guard let cell = tableView.makeView(withIdentifier: cellId, owner: self) as? NSTableCellView else { return nil }
                 
-                cell.textField?.stringValue = "\(row.status)"
+                cell.textField?.stringValue = row.status!
                 
                 return cell
             }
@@ -109,6 +104,13 @@ class JobListController: NSViewController, NSTableViewDelegate, NSTableViewDataS
         if selectedRow != -1 {
             let selectedData = jobList[selectedRow]
             print(selectedData)
+            
+            tableView.deselectRow(selectedRow)
+            
+            if let newVC = self.storyboard?.instantiateController(withIdentifier: "JobDetailControllerId") as? JobDetailController {
+                newVC.jobApp = selectedData
+                self.presentAsSheet(newVC)
+            }
         }
     }
     
@@ -116,6 +118,7 @@ class JobListController: NSViewController, NSTableViewDelegate, NSTableViewDataS
         do {
             self.jobList.removeAll()
             self.jobList = try context.fetch(JobApp.fetchRequest())
+            self.tableView.reloadData()
         } catch {
             print("Error getting job list")
         }
